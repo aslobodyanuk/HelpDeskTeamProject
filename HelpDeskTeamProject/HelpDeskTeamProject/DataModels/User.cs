@@ -12,20 +12,23 @@ namespace HelpDeskTeamProject.DataModels
 
         public string Email { get; set; }
 
+        public string AppId { get; set; }
+
         public bool IsBanned { get; set; }
 
-        public ApplicationRole AppRole { get; set; }
+        public virtual ApplicationRole AppRole { get; set; }
 
-        public List<Team> Teams { get; set; }
+        public virtual List<Team> Teams { get; set; }
 
         public User()
         {
             Teams = new List<Team>();
         }
 
-        public User(string email, ApplicationRole appRole)
+        public User(string email, string appId, ApplicationRole appRole)
         {
             Teams = new List<Team>();
+            AppId = appId;
             Email = email;
             AppRole = appRole;
             IsBanned = false;
